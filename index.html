@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Primary -->
+  <title>ElCircuito.cl — El núcleo del movimiento musical urbano chileno</title>
+  <meta name="description" content="ElCircuito.cl es el punto de encuentro de la cultura urbana chilena. Descubre artistas, eventos y lo último del movimiento musical urbano en Chile." />
+  <meta name="keywords" content="movimiento musical urbano Chile, hip hop Chile, trap Chile, elcircuito.cl, Malandrino, Frakttal, Skuu, JamezManuel, DJMagika, DJwine, cultura urbana chilena" />
+  <meta name="author" content="ElCircuito.cl" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://elcircuito.cl/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="Logo.jpeg" />
+  <link rel="apple-touch-icon" href="Logo.jpeg" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elcircuito.cl/" />
+  <meta property="og:title" content="ElCircuito.cl — El núcleo del movimiento musical urbano chileno" />
+  <meta property="og:description" content="El punto de encuentro de la cultura urbana chilena. Artistas, eventos y lo último del movimiento urbano en Chile." />
+  <meta property="og:image" content="Logo.jpeg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ElCircuito.cl — El núcleo del movimiento" />
+  <meta name="twitter:description" content="El punto de encuentro de la cultura urbana chilena." />
+  <meta name="twitter:image" content="Logo.jpeg" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ElCircuito.cl",
+    "url": "https://elcircuito.cl",
+    "logo": "https://elcircuito.cl/Logo.jpeg",
+    "description": "El punto de encuentro de la cultura urbana chilena. Movimiento musical urbano.",
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --negro: #0a0a0a;
+      --gris-oscuro: #111111;
+      --gris-medio: #1c1c1c;
+      --acento: #e8ff00;
+      --acento2: #ff2d55;
+      --blanco: #f5f5f5;
+      --fuente: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--negro);
+      color: var(--blanco);
+      font-family: var(--fuente);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 2rem 1.5rem 6rem;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Logo.jpeg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(24px) brightness(0.15) saturate(1.8);
+      transform: scale(1.12);
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(232,255,0,0.07) 0%, transparent 65%),
+        linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 35%, rgba(10,10,10,0.85) 100%);
+      z-index: 1;
+    }
+
+    .hero__grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232,255,0,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,255,0,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .hero__sitename {
+      font-size: clamp(0.65rem, 1.8vw, 0.85rem);
+      font-weight: 900;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: rgba(245,245,245,0.4);
+      animation: fadeInUp 0.9s ease-out 0.2s both;
+    }
+
+    .hero__logo-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInScale 1s cubic-bezier(0.22,1,0.36,1) 0.4s both;
+    }
+
+    .hero__logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -14px;
+      border-radius: 22px;
+      border: 1px solid rgba(232,255,0,0.35);
+      animation: ringPulse 3.5s ease-in-out infinite;
+    }
+
+    .hero__logo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -28px;
+      border-radius: 28px;
+      border: 1px solid rgba(232,255,0,0.12);
+      animation: ringPulse 3.5s ease-in-out infinite 0.6s;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.015); }
+    }
+
+    .hero__logo {
+      width: min(380px, 78vw);
+      height: auto;
+      border-radius: 18px;
+      box-shadow:
+        0 0 0 1px rgba(232,255,0,0.18),
+        0 0 50px rgba(232,255,0,0.45),
+        0 0 100px rgba(232,255,0,0.22),
+        0 0 200px rgba(232,255,0,0.09),
+        0 24px 70px rgba(0,0,0,0.85);
+      animation: logoPulse 4s ease-in-out infinite 1.4s;
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.82); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(232,255,0,0.18),
+          0 0 50px rgba(232,255,0,0.45),
+          0 0 100px rgba(232,255,0,0.22),
+          0 0 200px rgba(232,255,0,0.09),
+          0 24px 70px rgba(0,0,0,0.85);
+      }
+      50% {
+        box-shadow:
+          0 0 0 1px rgba(232,255,0,0.3),
+          0 0 70px rgba(232,255,0,0.65),
+          0 0 140px rgba(232,255,0,0.32),
+          0 0 260px rgba(232,255,0,0.14),
+          0 24px 70px rgba(0,0,0,0.85);
+      }
+    }
+
+    .hero__divider {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: min(280px, 70vw);
+      animation: fadeInUp 0.9s ease-out 0.8s both;
+    }
+
+    .hero__divider::before,
+    .hero__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(232,255,0,0.45), transparent);
+    }
+
+    .hero__divider-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--acento);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--acento), 0 0 20px rgba(232,255,0,0.4);
+    }
+
+    .hero__tagline {
+      font-size: clamp(0.85rem, 2.4vw, 1.3rem);
+      font-weight: 300;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--acento);
+      text-shadow: 0 0 30px rgba(232,255,0,0.55), 0 0 60px rgba(232,255,0,0.2);
+      animation: fadeInUp 0.9s ease-out 1s both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      z-index: 2;
+      animation: fadeInUp 0.9s ease-out 1.4s both;
+    }
+
+    .hero__scroll-text {
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(232,255,0,0.4);
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--acento), transparent);
+      transform-origin: top;
+      animation: scrollLine 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); opacity: 1; transform-origin: top; }
+      50%  { transform: scaleY(1); opacity: 1; transform-origin: top; }
+      51%  { transform-origin: bottom; }
+      100% { transform: scaleY(0); opacity: 0; transform-origin: bottom; }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 5rem 1.5rem; }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 60px;
+      background: var(--acento);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── DAILY NEWS ── */
+    .daily-news {
+      background: var(--gris-oscuro);
+    }
+
+    .daily-news .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .news-card {
+      background: var(--gris-medio);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .news-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 30px rgba(232,255,0,0.12);
+    }
+
+    .news-card__img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .news-card__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .news-card:hover .news-card__img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .news-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--acento);
+      color: var(--negro);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .news-card__body {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .news-card__category {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .news-card__title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+
+    .news-card__desc {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: rgba(245,245,245,0.6);
+      line-height: 1.55;
+    }
+
+    /* ── ARTISTAS ── */
+    .artistas {
+      background: var(--negro);
+    }
+
+    .artistas .container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .artistas-track-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--acento) var(--gris-medio);
+      padding-bottom: 1rem;
+    }
+
+    .artistas-track-wrap::-webkit-scrollbar { height: 4px; }
+    .artistas-track-wrap::-webkit-scrollbar-track { background: var(--gris-medio); border-radius: 4px; }
+    .artistas-track-wrap::-webkit-scrollbar-thumb { background: var(--acento); border-radius: 4px; }
+
+    .artistas-track {
+      display: flex;
+      gap: 1.25rem;
+      padding: 0.5rem 0.25rem 0.5rem;
+      width: max-content;
+    }
+
+    .artista-card {
+      width: 220px;
+      flex-shrink: 0;
+      background: var(--gris-medio);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .artista-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.7), 0 0 25px rgba(232,255,0,0.18);
+    }
+
+    .artista-card__img-wrap {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .artista-card__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      filter: grayscale(20%);
+    }
+
+    .artista-card:hover .artista-card__img-wrap img {
+      transform: scale(1.08);
+      filter: grayscale(0%);
+    }
+
+    .artista-card__name {
+      padding: 0.9rem 1rem 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--blanco);
+    }
+
+    .artista-card__social {
+      display: block;
+      padding: 0 1rem 0.9rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: var(--acento);
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .artista-card__social:hover { opacity: 1; }
+
+    .news-card__social {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--acento);
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .news-card__social:hover { opacity: 1; }
+
+    /* ── QUE ES EL CIRCUITO ── */
+    .que-es {
+      background: var(--gris-oscuro);
+      text-align: center;
+      padding: 7rem 1.5rem;
+    }
+
+    .que-es .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .que-es__question {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .que-es__question::before,
+    .que-es__question::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: var(--acento);
+      opacity: 0.5;
+    }
+
+    .que-es__headline {
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--acento) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 2rem;
+    }
+
+    .que-es__body {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(245,245,245,0.65);
+      max-width: 650px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .que-es__tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .tag {
+      background: rgba(232,255,0,0.08);
+      border: 1px solid rgba(232,255,0,0.25);
+      color: var(--acento);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: rgba(245,245,245,0.35);
+      letter-spacing: 0.1em;
+    }
+
+    footer strong {
+      color: var(--acento);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .artista-card { width: 170px; }
+
+      .que-es { padding: 5rem 1.5rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .artistas-track {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        width: 100%;
+      }
+
+      .artista-card { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero" role="banner">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <p class="hero__sitename">ElCircuito.cl</p>
+
+      <div class="hero__logo-wrap">
+        <img
+          src="Logo.jpeg"
+          alt="ElCircuito.cl — Movimiento Musical Urbano Chileno"
+          class="hero__logo"
+          width="380"
+          height="380"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div class="hero__divider" aria-hidden="true">
+        <span class="hero__divider-dot"></span>
+      </div>
+
+      <p class="hero__tagline">El núcleo del movimiento</p>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </header>
+
+  <!-- ══════════ DAILY NEWS ══════════ -->
+  <section class="daily-news" aria-labelledby="news-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle">Lo último</p>
+        <h2 class="section-title" id="news-title">Daily News</h2>
+      </div>
+
+      <div class="news-grid">
+
+        <!-- Noticia 1: Magik Party -->
+        <article class="news-card" itemscope itemtype="https://schema.org/Event">
+          <div class="news-card__img-wrap">
+            <img
+              src="flayerevento.jpeg"
+              alt="Flyer Magik Party — ElCircuito.cl"
+              loading="lazy"
+              itemprop="image"
+            />
+            <span class="news-card__badge">Nuevo</span>
+          </div>
+          <div class="news-card__body">
+            <p class="news-card__category">Evento</p>
+            <h3 class="news-card__title" itemprop="name">Magik Party</h3>
+            <a class="news-card__social" href="https://instagram.com/magik_party" target="_blank" rel="noopener">@magik_party</a>
+            <p class="news-card__desc" itemprop="description">
+              La fiesta que reúne a lo mejor del movimiento urbano chileno. Una noche que no te puedes perder.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ ARTISTAS ══════════ -->
+  <section class="artistas" aria-labelledby="artistas-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle">Primera edición</p>
+        <h2 class="section-title" id="artistas-title">Conoce a los artistas</h2>
+      </div>
+
+      <div class="artistas-track-wrap" role="region" aria-label="Carrusel de artistas">
+        <div class="artistas-track">
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayermalandrino.jpeg" alt="Malandrino — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">Malandrino</p>
+            <a class="artista-card__social" href="https://instagram.com/sol0_diego" target="_blank" rel="noopener">@sol0_diego</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayerfrakttal.jpeg" alt="Frakttal — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">Frakttal</p>
+            <a class="artista-card__social" href="https://instagram.com/frakttal" target="_blank" rel="noopener">@frakttal</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayerskuu.PNG" alt="Skuu — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">Skuu</p>
+            <a class="artista-card__social" href="https://instagram.com/44sskuu" target="_blank" rel="noopener">@44sskuu</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayermarmota.jpeg" alt="Paul Marmota — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">Paul Marmota</p>
+            <a class="artista-card__social" href="https://instagram.com/paulmarmota" target="_blank" rel="noopener">@paulmarmota</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayerjamezmanuel.PNG" alt="JamezManuel — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">JamezManuel</p>
+            <a class="artista-card__social" href="https://instagram.com/jamezmanuel" target="_blank" rel="noopener">@jamezmanuel</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayerdjmagika.PNG" alt="DJ Magika — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">DJ Magika</p>
+            <a class="artista-card__social" href="https://instagram.com/magika_dj" target="_blank" rel="noopener">@magika_dj</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayerdjwine.PNG" alt="DJ Wine — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">DJ Wine</p>
+            <a class="artista-card__social" href="https://instagram.com/djwine_" target="_blank" rel="noopener">@djwine_</a>
+          </article>
+
+          <article class="artista-card" itemscope itemtype="https://schema.org/MusicGroup">
+            <div class="artista-card__img-wrap">
+              <img src="flayericci.PNG" alt="Icci — ElCircuito.cl" loading="lazy" itemprop="image" />
+            </div>
+            <p class="artista-card__name" itemprop="name">Ricci</p>
+            <a class="artista-card__social" href="https://instagram.com/reciomotora" target="_blank" rel="noopener">@reciomotora</a>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ QUÉ ES EL CIRCUITO ══════════ -->
+  <section class="que-es" aria-labelledby="quees-title">
+    <div class="container">
+      <p class="que-es__question">¿Qué es ElCircuito.cl?</p>
+      <h2 class="que-es__headline" id="quees-title">
+        El punto de encuentro<br />de la cultura urbana 
+      </h2>
+      <p class="que-es__body">
+        ElCircuito.cl es una plataforma dedicada a visibilizar, conectar y potenciar el movimiento musical urbano.
+        Artistas emergentes, eventos exclusivos y contenido único que pulsa al ritmo de las calles.
+      </p>
+      <div class="que-es__tags" aria-label="Géneros y temáticas">
+        <span class="tag">Hip Hop</span>
+        <span class="tag">Trap</span>
+        <span class="tag">Reggaeton</span>
+        <span class="tag">Freestyle</span>
+        <span class="tag">Cultura urbana</span>
+        <span class="tag">Chile</span>
+        <span class="tag">Live Events</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <p>&copy; 2026 <strong>ElCircuito.cl</strong> — El núcleo del movimiento musical urbano .</p>
+  </footer>
+
+</body>
+</html>
